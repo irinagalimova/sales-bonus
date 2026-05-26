@@ -100,7 +100,7 @@ function analyzeSalesData(data, options) {
       .map(([sku, quantity]) => ({ sku, quantity }))
       .sort((a, b) => b.quantity - a.quantity)
       .slice(0, 10);
-    seller.bonus = calculateBonus(index, sellerStats.length, seller);
+    seller.bonus = options.calculateBonus(index, sellerStats.length, seller);
   });
   // @TODO: Подготовка итоговой коллекции с нужными полями
   return sellerStats.map((seller) => ({
