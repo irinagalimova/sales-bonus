@@ -118,6 +118,3 @@ function analyzeSalesData(data, options) {
   }));
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { calculateSimpleRevenue, calculateBonusByProfit, analyzeSalesData };
-}
