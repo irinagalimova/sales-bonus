@@ -117,3 +117,7 @@ function analyzeSalesData(data, options) {
     bonus: +seller.bonus.toFixed(2),
   }));
 }
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { calculateSimpleRevenue, calculateBonusByProfit, analyzeSalesData };
+}
