@@ -52,11 +52,15 @@ function analyzeSalesData(data, options) {
     throw new Error("Некорректные входные данные");
   }
   // @TODO: Проверка наличия опций
-  const { calculateRevenue, calculateBonus } = options;
-  if (!calculateRevenue || !calculateBonus) {
+  if (
+    !options ||
+    typeof options.calculateRevenue !== "function" ||
+    typeof options.calculateBonus !== "function"
+  ) {
     throw new Error("Что-то пошло не так");
   }
-  // @TODO: Подготовка промежуточных данных для сбора статистики
+
+  const { calculateRevenue, calculateBonus } = options;
   const sellerStats = data.sellers.map((seller) => ({
     id: seller.id,
     name: `${seller.first_name} ${seller.last_name}`,
